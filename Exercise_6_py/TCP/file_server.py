@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import sys
 import socket
 from lib import Lib
@@ -26,4 +28,4 @@ def sendFile(fileName,  fileSize,  conn):
 	# TO DO Your Code
     
 if __name__ == "__main__":
-   main(sys.argv[1:])
+	main(sys.argv[1:])

@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 
 import sys
-import socket
-from lib import Lib
+from socket import socket, AF_INET, SOCK_STREAM
 
-HOST = ''
+HOST = ""
 PORT = 9000
-BUFSIZE = 1000
 
 def main(argv):
 	serverSocket = socket(AF_INET, SOCK_STREAM)
@@ -22,9 +20,9 @@ def main(argv):
 		print("Besked modtaget fra klient:", msg.decode())
 		msg = msg.upper()
 		connectionSocket.send(msg)
-		connection.close()
+		connectionSocket.close()
 
-def sendFile(fileName,  fileSize,  conn):
+#def sendFile(fileName,  fileSize,  conn):
 	# TO DO Your Code
     
 if __name__ == "__main__":

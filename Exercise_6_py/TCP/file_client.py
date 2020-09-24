@@ -1,10 +1,10 @@
-import sys
-from socket import *
-from lib import Lib
+#!/usr/bin/python3
 
-NAME = "10.0.0.1"
+import sys
+from socket import socket, AF_INET, SOCK_STREAM
+
+NAME = "192.168.199.137"
 PORT = 9000
-BUFSIZE = 1000
 
 def main(argv):
 	clientSocket = socket(AF_INET, SOCK_STREAM)
@@ -14,11 +14,11 @@ def main(argv):
 	msgToServer = input("Input: ")
 	clientSocket.sendto(msgToServer.encode(), (NAME, PORT))
 	bytesAdrPair = clientSocket.recvfrom(2048)
-	msgFromServer = vytesAdrPair[0]
+	msgFromServer = bytesAdrPair[0]
 	print(msgFromServer.decode())
 	clientSocket.close()
     
-def receiveFile(fileName,  conn):
+# def receiveFile(fileName,  conn):
 	# TO DO Your Code
 
 if __name__ == "__main__":

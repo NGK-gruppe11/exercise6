@@ -1,12 +1,9 @@
-import sys
-import string
 import os
-from socket import *
 
 class Lib(object):
     @staticmethod
     def extractFilename(fileName):
-        return fileName[fileName.rfind('/', 0,  len(fileName))+1:]
+        return fileName[fileName.rfind("/", 0,  len(fileName))+1:]
 
     @staticmethod
     def check_File_Exists(fileName):
@@ -14,7 +11,6 @@ class Lib(object):
             size = os.stat(fileName).st_size
         except: 
             size = 0
-            sys.exc_clear()
             
         return size
 
@@ -23,23 +19,22 @@ class Lib(object):
         text = ""
         ch = client.recv(1)
         
-        while ch != "\0":
-            text += ch
+        while ch != b'\0':
+            text += ch.decode()
             ch = client.recv(1)
         
-        return text.decode('UTF-8', 'strict')
-    
+        return text
+            
     @staticmethod
     def writeTextTCP(text,  client):
-        client.send(text.encode('UTF-8', 'strict')+"\0")
+        client.send((text+"\0").encode())
         
     @staticmethod
     def getFileSizeTCP(client):
         filesize = 0
         try:
-            filesize = long(Lib.readTextTCP(client))
+            filesize = int(Lib.readTextTCP(client))
         except: 
             filesize = -1
-            sys.exc_clear()
 
         return filesize

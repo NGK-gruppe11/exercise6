@@ -8,7 +8,7 @@ BUFSIZE = 1000
 
 def main(argv):
     serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    HOST = '10.0.0.1'
+    HOST = socket.gethostname()
     serverSocket.bind((HOST,PORT))
     serverSocket.listen(1)
     

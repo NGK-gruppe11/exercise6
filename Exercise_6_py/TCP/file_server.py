@@ -19,6 +19,17 @@ def main(argv):
 		msg = connectionSocket.recv(2048)
 		print("Besked modtaget fra klient:", msg.decode())
 		msg = msg.upper()
+
+		######## send file
+
+		f = open('testfile.txt', 'rb')
+		l = f.read(1024)
+		while(l):
+			connectionSocket.send(l)
+			l = f.read(1024)
+
+		#############
+
 		connectionSocket.send(msg)
 		connectionSocket.close()
 

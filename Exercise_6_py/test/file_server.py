@@ -13,7 +13,7 @@ def main(argv):
     serverSocket.bind((HOST,PORT))
     serverSocket.listen(1)
     
-    prin('Server is listening... ')
+    print('Server is listening... ')
 
     while True:
         connectionSocket, addr = serverSocket.accept()

@@ -12,11 +12,11 @@ def main(argv):
 	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	print("Klient connecter...")
 
-	client.connect(ADDR)
+	client.connect((SERVER, PORT))
 	print("Klient connected.")
 	msgToServer = input("Input: ")
 
-	client.sendto(msgToServer.encode(), ADDR)
+	client.sendto(msgToServer.encode(), (SERVER, PORT))
 	bytesAdrPair = client.recvfrom(HEADER)
 	msgFromServer = bytesAdrPair[0]
 	print(msgFromServer.decode())

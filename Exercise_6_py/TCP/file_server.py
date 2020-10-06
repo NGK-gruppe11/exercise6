@@ -9,10 +9,13 @@ PORT = 9000
 ADDR = (SERVER, PORT)
 
 def main(argv):
-	socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) # no server wait on shutdown
+
 
 	print("Server set to ", ADDR)
 	server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+	server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
 	server.bind(ADDR)
 	server.listen()
 

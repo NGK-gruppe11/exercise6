@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
-import lib
+import sys
+import socket
 
 HEADER = 1000
 SERVER = "192.168.199.137" # local ip

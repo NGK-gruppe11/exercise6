@@ -9,7 +9,7 @@ PORT = 9000
 ADDR = (SERVER, PORT)
 
 def main(argv):
-	server = socket(AF_INET, SOCK_STREAM)
+	server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	server.bind(ADDR)
 	server.listen()
 
@@ -27,6 +27,6 @@ def main(argv):
 
 #def sendFile(fileName,  fileSize,  conn):
 	# TO DO Your Code
-    
+
 if __name__ == "__main__":
 	main(sys.argv[1:])

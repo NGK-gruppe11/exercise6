@@ -9,18 +9,18 @@ PORT = 9000
 ADDR = (CLIENT, PORT)
 
 def main(argv):
-	clientSocket = socket(AF_INET, SOCK_STREAM)
+	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	print("Klient connecter...")
 
-	clientSocket.connect(ADDR)
+	client.connect(ADDR)
 	print("Klient connected.")
 	msgToServer = input("Input: ")
 
-	clientSocket.sendto(msgToServer.encode(), ADDR)
-	bytesAdrPair = clientSocket.recvfrom(HEADER)
+	client.sendto(msgToServer.encode(), ADDR)
+	bytesAdrPair = client.recvfrom(HEADER)
 	msgFromServer = bytesAdrPair[0]
 	print(msgFromServer.decode())
-	clientSocket.close()
+	client.close()
 
 if __name__ == "__main__":
    main(sys.argv[1:])

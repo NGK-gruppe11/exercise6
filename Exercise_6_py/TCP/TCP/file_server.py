@@ -24,8 +24,6 @@ def main(argv):
 		conn, addr = server.accept()
 		print("Socket accept", addr)
 
-		print(Lib.check_File_Exists("test.txt"))
-
 		msg = conn.recv(HEADER)
 		print("Besked modtaget fra klient:", msg.decode())
 		msg = msg.upper()

@@ -9,6 +9,7 @@ PORT = 9000
 ADDR = (SERVER, PORT)
 
 def main(argv):
+	print("Server set to ", ADDR)
 	server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	server.bind(ADDR)
 	server.listen()

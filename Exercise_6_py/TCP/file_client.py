@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-from socket import socket, AF_INET, SOCK_STREAM
+import socket
 
 HEADER = 1000
 CLIENT = socket.gethostbyname(socket.gethostname())
@@ -15,7 +15,7 @@ def main(argv):
 	clientSocket.connect(ADDR)
 	print("Klient connected.")
 	msgToServer = input("Input: ")
-	
+
 	clientSocket.sendto(msgToServer.encode(), ADDR)
 	bytesAdrPair = clientSocket.recvfrom(HEADER)
 	msgFromServer = bytesAdrPair[0]

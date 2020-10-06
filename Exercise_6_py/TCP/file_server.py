@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 import sys
-from socket import socket, AF_INET, SOCK_STREAM
+import socket
 
 HEADER = 1000
 SERVER = socket.gethostbyname(socket.gethostname()) # local ip

@@ -10,7 +10,7 @@ ADDR = (SERVER, PORT)
 
 def main(argv):
 	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	print("Klient connecter...")
+	print("Klient connecter til ", ADDR)
 
 	client.connect(ADDR)
 	print("Klient connected.")

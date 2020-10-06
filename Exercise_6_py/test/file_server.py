@@ -13,14 +13,14 @@ def main(argv):
     serverSocket.bind((HOST,PORT))
     serverSocket.listen(1)
     
-    print 'Server is listening... '
+    prin('Server is listening... ')
 
     while True:
         connectionSocket, addr = serverSocket.accept()
-        print 'Connection from' , addr, 'has been established'
+        print('Connection from' , addr, 'has been established')
         data = connectionSocket.recv(1024)
-        print ('Server ready to send...', repr(data))
-        print ('Enter name of file: ')
+        print('Server ready to send...', repr(data))
+        print('Enter name of file: ')
         filename = raw_input("") #skal matche det korrekte fil navn
         file = open(filename, "rb")
         data = file.read(BUFSIZE)

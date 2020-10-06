@@ -3,25 +3,27 @@
 import sys
 from socket import socket, AF_INET, SOCK_STREAM
 
-HOST = ""
+HEADER = 1000
+SERVER = socket.gethostbyname(socket.gethostname()) # local ip
 PORT = 9000
+ADDR = (SERVER, PORT)
 
 def main(argv):
-	serverSocket = socket(AF_INET, SOCK_STREAM)
-	serverSocket.bind((HOST, PORT))
-	serverSocket.listen(1)
+	server = socket(AF_INET, SOCK_STREAM)
+	server.bind(ADDR)
+	server.listen()
 
 	while 1:
 		print("Server er klar.")
-		connectionSocket, addr = serverSocket.accept()
+		conn, addr = server.accept()
 		print("Socket accept", addr)
 
-		msg = connectionSocket.recv(2048)
+		msg = conn.recv(HEADER)
 		print("Besked modtaget fra klient:", msg.decode())
 		msg = msg.upper()
 
-		connectionSocket.send(msg)
-		connectionSocket.close()
+		conn.send(msg)
+		conn.close()
 
 #def sendFile(fileName,  fileSize,  conn):
 	# TO DO Your Code

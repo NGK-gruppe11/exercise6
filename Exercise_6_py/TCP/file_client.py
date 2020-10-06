@@ -4,7 +4,7 @@ import sys
 import socket
 
 HEADER = 1000
-SERVER = "127.0.1.1"
+SERVER = "192.168.199.137"
 PORT = 5050
 ADDR = (SERVER, PORT)
 

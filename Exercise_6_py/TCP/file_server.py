@@ -4,7 +4,7 @@ import sys
 import socket
 
 HEADER = 1000
-SERVER = socket.gethostbyname(socket.gethostname()) # local ip
+SERVER = "192.168.199.137" # local ip
 PORT = 5050
 ADDR = (SERVER, PORT)
 

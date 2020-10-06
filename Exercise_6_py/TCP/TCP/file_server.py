@@ -2,6 +2,7 @@
 
 import sys
 import socket
+from lib import Lib
 
 HEADER = 1000
 SERVER = "192.168.199.137" # local ip
@@ -9,7 +10,6 @@ PORT = 5050
 ADDR = (SERVER, PORT)
 
 def main(argv):
-
 
 	print("Server set to ", ADDR)
 	server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -24,6 +24,8 @@ def main(argv):
 		conn, addr = server.accept()
 		print("Socket accept", addr)
 
+		print(Lib.check_File_Exists("test.txt"))
+
 		msg = conn.recv(HEADER)
 		print("Besked modtaget fra klient:", msg.decode())
 		msg = msg.upper()
@@ -31,8 +33,8 @@ def main(argv):
 		conn.send(msg)
 		conn.close()
 
-#def sendFile(fileName,  fileSize,  conn):
-	# TO DO Your Code
+def sendFile(fileName,  fileSize,  conn):
+	pass
 
 if __name__ == "__main__":
 	main(sys.argv[1:])

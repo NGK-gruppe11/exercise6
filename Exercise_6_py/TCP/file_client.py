@@ -4,9 +4,9 @@ import sys
 import socket
 
 HEADER = 1000
-CLIENT = socket.gethostbyname(socket.gethostname())
+SERVER = "192.168.199.137"
 PORT = 9000
-ADDR = (CLIENT, PORT)
+ADDR = (SERVER, PORT)
 
 def main(argv):
 	client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

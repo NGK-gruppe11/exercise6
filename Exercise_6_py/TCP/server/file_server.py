@@ -30,7 +30,7 @@ def main(argv):
 		
 		sendFile(msg.decode(), conn)
 
-	conn.close()
+		conn.close()
 
 def sendFile(fileName, conn):
 	try:

@@ -24,7 +24,7 @@ def main(argv):
 	print(msgFromServer.decode())
 
 	# receive file
-	with open(fileMsg, "wb", encoding='utf-16') as file:
+	with open(fileMsg, "wb") as file:
 		print("Getting file...")
 		while True:
 			data = client.recv(HEADER)

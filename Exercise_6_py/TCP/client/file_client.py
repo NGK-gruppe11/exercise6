@@ -5,7 +5,7 @@ import socket
 from lib import Lib
 
 HEADER = 1000
-SERVER = "192.168.199.137"
+SERVER = "192.168.8.101"
 PORT = 5050
 ADDR = (SERVER, PORT)
 
@@ -24,7 +24,7 @@ def main(argv):
 	print(msgFromServer.decode())
 
 	# receive file
-	with open(fileMsg, "wb") as file:
+	with open(fileMsg, "wb", encoding='utf-16') as file:
 		print("Getting file...")
 		while True:
 			data = client.recv(HEADER)

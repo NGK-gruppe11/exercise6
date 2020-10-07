@@ -40,7 +40,7 @@ def sendFile(fileName, conn):
 	except:
 		conn.send("File not found!".encode())
 
-	with open(fileName, "rb") as file:
+	with open(fileName, "rb", encoding='utf-16') as file:
 		data = file.read(HEADER)
 		print("Sending...")
 		while data:

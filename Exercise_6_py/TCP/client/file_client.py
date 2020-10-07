@@ -23,13 +23,16 @@ def main(argv):
 	msgFromServer = bytesAdrPair[0]
 	print(msgFromServer.decode())
 
-	# file
+	# receive file
 	with open(fileMsg, "wb") as file:
-		print("Open file")
+		print("Getting file...")
 		while True:
 			data = client.recv(HEADER)
 			file.write(data)
+			if not data:
+				break
 
+		print("File received.")
 	client.close()
 
 if __name__ == "__main__":

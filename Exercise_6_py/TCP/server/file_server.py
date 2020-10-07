@@ -41,9 +41,9 @@ def sendFile(fileName, conn):
 
 	with open(fileName, "rb") as file:
 		data = file.read(HEADER)
+		print("Sending...")
 		while data:
 			conn.send(data)
-			print("Sending...")
 			data = file.read(HEADER)
 	print("File sent.")
 

@@ -5,7 +5,7 @@ import socket
 from lib import Lib
 
 HEADER = 1000
-SERVER = "192.168.199.137" # local ip
+SERVER = "192.168.199.1" # local ip
 PORT = 5050
 ADDR = (SERVER, PORT)
 
@@ -26,13 +26,26 @@ def main(argv):
 
 		msg = conn.recv(HEADER)
 		print("Besked modtaget fra klient:", msg.decode())
-		msg = msg.upper()
+		
+		sendFile(msg.decode(), conn)
 
-		conn.send(msg)
+		# conn.send(msg)
 		conn.close()
 
-def sendFile(fileName,  fileSize,  conn):
-	pass
+def sendFile(fileName, conn):
+	try:
+		msg = "File size: " + str(Lib.check_File_Exists(fileName))
+		conn.send(msg.encode())
+	except:
+		conn.send("File not found!".encode())
+
+	with open(fileName, "rb") as file:
+		data = file.read(HEADER)
+		while data:
+			conn.send(data)
+			print("Sending...")
+			data = file.read(HEADER)
+	print("File sent.")
 
 if __name__ == "__main__":
 	main(sys.argv[1:])

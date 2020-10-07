@@ -5,7 +5,7 @@ import socket
 from lib import Lib
 
 HEADER = 1000
-SERVER = "192.168.199.137"
+SERVER = "192.168.199.1"
 PORT = 5050
 ADDR = (SERVER, PORT)
 
@@ -15,12 +15,21 @@ def main(argv):
 
 	client.connect(ADDR)
 	print("Klient connected.")
-	msgToServer = input("Input: ")
+	fileMsg = input("Input: ")
 
-	client.sendto(msgToServer.encode(), ADDR)
+	# file size
+	client.sendto(fileMsg.encode(), ADDR)
 	bytesAdrPair = client.recvfrom(HEADER)
 	msgFromServer = bytesAdrPair[0]
 	print(msgFromServer.decode())
+
+	# file
+	with open(fileMsg, "wb") as file:
+		print("Open file")
+		while True:
+			data = client.recv(HEADER)
+			file.write(data)
+
 	client.close()
 
 if __name__ == "__main__":

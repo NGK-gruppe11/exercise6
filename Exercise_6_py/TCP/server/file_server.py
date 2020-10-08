@@ -5,7 +5,7 @@ import socket
 from lib import Lib
 
 HEADER = 1000
-SERVER = "192.168.199.137" # local ip
+SERVER = "192.168.8.101" # local ip
 PORT = 5050
 ADDR = (SERVER, PORT)
 FORMAT = 'utf-4'

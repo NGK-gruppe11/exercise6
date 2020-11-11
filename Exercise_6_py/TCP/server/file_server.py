@@ -5,10 +5,9 @@ import socket
 from lib import Lib # har en funktion til at returnere size af fil
 
 HEADER = 1000 # bytes der skal sendes pr gang
-SERVER = "192.168.8.101" # local ip
-PORT = 5050
+SERVER = "10.0.0.1" # ip
+PORT = 9000
 ADDR = (SERVER, PORT) # adresse består af ip + port
-FORMAT = 'utf-4'
 
 def main(argv):
 

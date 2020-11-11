@@ -5,8 +5,8 @@ import socket
 from lib import Lib
 
 HEADER = 1000
-SERVER = "192.168.8.101" # ip på server
-PORT = 5050
+SERVER = "10.0.0.1" # ip på server
+PORT = 9000
 ADDR = (SERVER, PORT)
 
 def main(argv):

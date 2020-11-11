@@ -22,7 +22,7 @@ def main(argv):
 	while 1:
 		print("Server er klar.")
 		conn, addr = server.accept() # blokerende funktion der venter indtil listen() opfanger en klient
-		print("Socket accept", addr) # print klient
+		print("Socket accepted.") # print klient
 
 		msg = conn.recv(HEADER) # blokerende linje der venter til besked er modtaget (fil navnet)
 		print("Besked modtaget fra klient:", msg.decode()) # decode() konvertere besked til string
